@@ -4,6 +4,7 @@ export type Rol = "ADMIN" | "DOCENTE" | "ESTUDIANTE";
 export interface Usuario {
   id: number;
   nombre: string;
+  apellido: string;
   email: string;
   rol: Rol;
   activo: boolean;

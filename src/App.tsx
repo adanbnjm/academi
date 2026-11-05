@@ -8,6 +8,8 @@ import { PlantillaApp } from "./components/layout/PlantillaApp";
 import { InicioPage } from "./pages/InicioPage";
 import { PerfilPage } from "./pages/PerfilPage";
 import { NoEncontradaPage } from "./pages/NoEncontradaPage";
+import { RutaProtegida } from "./components/layout/RutaProtegida";
+import { EstudiantesPage } from "./pages/EstudiantesPage";
 // import { CursoDetallePage } from "./pages/CursoDetallePage";
 // import { MisInscripcionesPage } from "./pages/MisInscripcionesPage";
 // import { CalificacionesPage } from "./pages/CalificacionesPage";
@@ -25,10 +27,24 @@ function App() {
 
       <Route element={<PlantillaApp />}>
         <Route path="/inicio" element={<InicioPage></InicioPage>}></Route>
-        <Route path="/cursos" element={<CursosPage />}></Route>
+        {/*  <Route path="/cursos" element={<CursosPage />}></Route>*/}
+
         <Route path="/perfil" element={<PerfilPage />} />
 
         {/*Agregar las rutas de estudiantes, inscripciones*/}
+
+        {/**RUTAS QUE solo puede ingresar el administrador*/}
+        <Route element={<RutaProtegida roles={["ADMIN"]} />}>
+          <Route
+            path="/estudiantes"
+            element={<EstudiantesPage></EstudiantesPage>}
+          ></Route>
+        </Route>
+
+        {/**RUTAS QUE solo puede ingresar el estudianter*/}
+        <Route element={<RutaProtegida roles={["ESTUDIANTE"]} />}>
+          <Route path="/cursos" element={<CursosPage />}></Route>
+        </Route>
       </Route>
 
       <Route path="" element={<NoEncontradaPage />}></Route>

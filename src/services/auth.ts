@@ -29,4 +29,12 @@ export const authService = {
     );
     return respuesta.data.data;
   },
+  // apartado para el registro, basicamente lo mismo con cambios de los datos a enviar y la ruta
+  registrar: async (datos: RegistroDatos): Promise<Sesion> => {
+    const respuesta = await api.post<RespuestaApi<Sesion>>(
+      "/auth/register",
+      datos,
+    );
+    return respuesta.data.data;
+  },
 };
