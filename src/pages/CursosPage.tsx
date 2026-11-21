@@ -1,12 +1,13 @@
-import { Search } from "lucide-react";
+import { useState } from "react";
 import { useApi } from "../hooks/useApi";
 import { cursosService } from "../services/cursos";
 import { TarjetaCurso } from "../components/cursos/TarjetaCurso";
+import { Buscador } from "../components/cursos/Buscador";
 import { EncabezadoPagina } from "../components/ui/EncabezadoPagina";
 
-const categorias = ["Todos"];
-
 export function CursosPage() {
+  const [busqueda, setBusqueda] = useState("");
+
   const {
     data: respuesta,
     cargando,
@@ -16,6 +17,14 @@ export function CursosPage() {
 
   const cursos = respuesta?.data ?? [];
 
+  const cursosFiltrados = cursos.filter((curso) => {
+    const nombre = curso.nombre.toLowerCase();
+    const codigo = curso.codigo.toLowerCase();
+    const texto = busqueda.toLowerCase().trim();
+
+    return nombre.includes(texto) || codigo.includes(texto);
+  });
+
   return (
     <>
       <EncabezadoPagina
@@ -23,28 +32,8 @@ export function CursosPage() {
         descripcion="Explora los cursos disponibles en nuestra academia."
       />
 
-      <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-center">
-        <div className="relative lg:w-80">
-          <Search
-            size={18}
-            className="absolute top-1/2 left-3 -translate-y-1/2 text-slate-400"
-          />
-          <input
-            placeholder="Buscar por nombre o código..."
-            className="w-full rounded-lg border border-slate-300 bg-white py-2.5 pr-3 pl-10 text-sm focus:border-marca-500 focus:ring-4 focus:ring-marca-100 focus:outline-none"
-          />
-        </div>
-
-        <div className="flex flex-wrap gap-2">
-          {categorias.map((categoria) => (
-            <button
-              key={categoria}
-              className="rounded-full bg-marca-600 px-3.5 py-1.5 text-sm font-medium text-white"
-            >
-              {categoria}
-            </button>
-          ))}
-        </div>
+      <div className="mb-6">
+        <Buscador valor={busqueda} onCambiar={setBusqueda} />
       </div>
 
       {cargando && (
@@ -69,9 +58,18 @@ export function CursosPage() {
         </p>
       )}
 
-      {!cargando && !error && cursos.length > 0 && (
+      {!cargando &&
+        !error &&
+        cursos.length > 0 &&
+        cursosFiltrados.length === 0 && (
+          <p className="py-8 text-center text-slate-500">
+            No se encontraron cursos que coincidan con tu búsqueda.
+          </p>
+        )}
+
+      {!cargando && !error && cursosFiltrados.length > 0 && (
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-          {cursos.map((curso) => (
+          {cursosFiltrados.map((curso) => (
             <TarjetaCurso key={curso.id} curso={curso} />
           ))}
         </div>

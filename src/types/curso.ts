@@ -29,7 +29,7 @@ export interface CursoApi {
   cupo: number;
   inscritos: number;
   disponibles: number;
-  docente: DocenteCurso;
+  docente: DocenteCurso | null;
 }
 
 export interface RespuestaCursos {

@@ -4,6 +4,7 @@ import { BarraProgreso } from "../ui/BarraProgreso";
 import { Boton } from "../ui/Boton";
 import { Insignia } from "../ui/Insignia";
 import { Tarjeta } from "../ui/Tarjeta";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   curso: CursoApi;
@@ -12,6 +13,7 @@ interface Props {
 export function TarjetaCurso({ curso }: Props) {
   const lleno = curso.disponibles <= 0;
   const porcentaje = curso.cupo > 0 ? (curso.inscritos / curso.cupo) * 100 : 0;
+  const navegar = useNavigate();
 
   return (
     <Tarjeta className="flex flex-col overflow-hidden transition-shadow hover:shadow-md">
@@ -36,7 +38,9 @@ export function TarjetaCurso({ curso }: Props) {
         <div className="mt-4 space-y-1.5 text-sm text-slate-600">
           <p className="flex items-center gap-2">
             <User size={15} className="text-slate-400" />
-            {curso.docente.nombre} {curso.docente.apellido}
+            {curso.docente
+              ? `${curso.docente.nombre} ${curso.docente.apellido}`
+              : "Docente no asignado"}
           </p>
         </div>
 
@@ -56,7 +60,11 @@ export function TarjetaCurso({ curso }: Props) {
         </div>
 
         <div className="mt-5 flex gap-2 pt-1">
-          <Boton variante="secundario" className="flex-1">
+          <Boton
+            variante="secundario"
+            className="flex-1"
+            onClick={() => navegar(`/cursos/${curso.id}`)}
+          >
             Ver detalle
           </Boton>
 

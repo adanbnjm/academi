@@ -10,7 +10,7 @@ import { PerfilPage } from "./pages/PerfilPage";
 import { NoEncontradaPage } from "./pages/NoEncontradaPage";
 import { RutaProtegida } from "./components/layout/RutaProtegida";
 import { EstudiantesPage } from "./pages/EstudiantesPage";
-// import { CursoDetallePage } from "./pages/CursoDetallePage";
+import { CursoDetallePage } from "./pages/CursoDetallePage";
 // import { MisInscripcionesPage } from "./pages/MisInscripcionesPage";
 // import { CalificacionesPage } from "./pages/CalificacionesPage";
 // import { EstudiantesPage } from "./pages/EstudiantesPage";
@@ -43,7 +43,8 @@ function App() {
 
         {/**RUTAS QUE solo puede ingresar el estudianter*/}
         <Route element={<RutaProtegida roles={["ESTUDIANTE"]} />}>
-          <Route path="/cursos" element={<CursosPage />}></Route>
+          <Route path="/cursos" element={<CursosPage />} />
+          <Route path="/cursos/:id" element={<CursoDetallePage />} />
         </Route>
       </Route>
 
