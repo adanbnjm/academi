@@ -31,10 +31,6 @@ const claseEnlace = ({ isActive }: { isActive: boolean }) =>
       : "text-marca-100 hover:bg-white/5 hover:text-white"
   }`;
 
-interface Props {
-  activo: string;
-}
-
 export function BarraLateral() {
   const Navigate = useNavigate();
   const usuario = useAuthStore((s) => s.usuario);

@@ -5,7 +5,7 @@ import {
   ClipboardList,
   Clock,
 } from "lucide-react";
-import { PlantillaApp } from "../components/layout/PlantillaApp";
+
 import { Boton } from "../components/ui/Boton";
 import { EstadoInscripcionInsignia } from "../components/ui/EstadoInscripcionInsignia";
 import { Tarjeta } from "../components/ui/Tarjeta";

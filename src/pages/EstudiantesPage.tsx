@@ -6,7 +6,7 @@ import {
   Trash2,
   UserPlus,
 } from "lucide-react";
-import { PlantillaApp } from "../components/layout/PlantillaApp";
+
 import { Avatar } from "../components/ui/Avatar";
 import { Boton } from "../components/ui/Boton";
 import { EncabezadoPagina } from "../components/ui/EncabezadoPagina";

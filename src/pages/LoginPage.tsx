@@ -1,4 +1,4 @@
-import { GraduationCap, Lock, Mail } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 import { Boton } from "../components/ui/Boton";
 import { CampoTexto } from "../components/ui/CampoTexto";
 import { Navigate, useNavigate, Link } from "react-router-dom";

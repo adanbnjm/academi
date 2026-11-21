@@ -1,5 +1,5 @@
 import { ArrowLeft, Award, TrendingUp } from "lucide-react";
-import { PlantillaApp } from "../components/layout/PlantillaApp";
+
 import { EstadoInscripcionInsignia } from "../components/ui/EstadoInscripcionInsignia";
 import { Insignia } from "../components/ui/Insignia";
 import { Tarjeta } from "../components/ui/Tarjeta";
@@ -8,14 +8,19 @@ import { calificaciones } from "../data/mock";
 export function CalificacionesPage() {
   return (
     <>
-      <a href="#" className="mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-slate-500 hover:text-slate-800">
+      <a
+        href="#"
+        className="mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-slate-500 hover:text-slate-800"
+      >
         <ArrowLeft size={16} /> Volver a mis inscripciones
       </a>
 
       <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-sm text-slate-500">Inscripción #102</p>
-          <h1 className="text-2xl font-bold text-slate-900">React con TypeScript</h1>
+          <h1 className="text-2xl font-bold text-slate-900">
+            React con TypeScript
+          </h1>
         </div>
         <EstadoInscripcionInsignia estado="ACTIVA" />
       </div>
@@ -33,7 +38,9 @@ export function CalificacionesPage() {
           <p className="mt-5 flex items-center gap-1.5 font-semibold text-slate-900">
             <Award size={18} className="text-marca-600" /> Promedio del curso
           </p>
-          <p className="mt-1 text-sm text-slate-500">Aprobado con 51 puntos o más</p>
+          <p className="mt-1 text-sm text-slate-500">
+            Aprobado con 51 puntos o más
+          </p>
         </Tarjeta>
 
         {/* Lista de notas */}
@@ -46,9 +53,14 @@ export function CalificacionesPage() {
           </div>
           <ul className="divide-y divide-slate-100">
             {calificaciones.map((calificacion) => (
-              <li key={calificacion.id} className="flex items-center gap-4 px-6 py-4">
+              <li
+                key={calificacion.id}
+                className="flex items-center gap-4 px-6 py-4"
+              >
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-slate-900">{calificacion.descripcion}</p>
+                  <p className="text-sm font-medium text-slate-900">
+                    {calificacion.descripcion}
+                  </p>
                   <p className="text-xs text-slate-500">{calificacion.fecha}</p>
                 </div>
                 <div className="hidden w-40 sm:block">
@@ -59,7 +71,15 @@ export function CalificacionesPage() {
                     />
                   </div>
                 </div>
-                <Insignia color={calificacion.nota >= 80 ? "verde" : calificacion.nota >= 51 ? "azul" : "rojo"}>
+                <Insignia
+                  color={
+                    calificacion.nota >= 80
+                      ? "verde"
+                      : calificacion.nota >= 51
+                        ? "azul"
+                        : "rojo"
+                  }
+                >
                   {calificacion.nota} pts
                 </Insignia>
               </li>

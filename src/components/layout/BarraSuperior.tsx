@@ -1,5 +1,5 @@
 import { Bell, Menu, Search } from "lucide-react";
-import { usuarioActual } from "../../data/mock";
+
 import { Avatar } from "../ui/Avatar";
 import { useAuthStore } from "../../store/useAuthStore";
 

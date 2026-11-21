@@ -1,5 +1,5 @@
 import { Camera, Lock, Mail, Trash2, User } from "lucide-react";
-import { PlantillaApp } from "../components/layout/PlantillaApp";
+
 import { Avatar } from "../components/ui/Avatar";
 import { Boton } from "../components/ui/Boton";
 import { CampoTexto } from "../components/ui/CampoTexto";

@@ -1,4 +1,3 @@
-import type { ReactNode } from "react";
 import { BarraLateral } from "./BarraLateral";
 import { BarraSuperior } from "./BarraSuperior";
 import { Outlet } from "react-router-dom";
