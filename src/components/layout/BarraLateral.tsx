@@ -50,7 +50,7 @@ export function BarraLateral() {
           <GraduationCap size={22} />
         </div>
         <div>
-          <p className="text-sm font-bold text-white">Academia FUNVAL</p>
+          <p className="text-sm font-bold text-white">Academi</p>
           <p className="text-xs text-marca-200">Sistema académico</p>
         </div>
       </div>

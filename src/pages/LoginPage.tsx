@@ -49,7 +49,7 @@ export function LoginPage() {
           <div className="rounded-lg bg-marca-500 p-2">
             <GraduationCap size={26} />
           </div>
-          <span className="text-lg font-bold">Academia FUNVAL</span>
+          <span className="text-lg font-bold">Academi</span>
         </div>
 
         <div className="relative max-w-md">
@@ -85,7 +85,7 @@ export function LoginPage() {
             <div className="rounded-lg bg-marca-600 p-1.5 text-white">
               <GraduationCap size={22} />
             </div>
-            <span className="font-bold text-slate-900">Academia FUNVAL</span>
+            <span className="font-bold text-slate-900">Academi</span>
           </div>
 
           <h1 className="text-2xl font-bold text-slate-900">Iniciar sesión</h1>

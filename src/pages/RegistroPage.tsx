@@ -98,7 +98,7 @@ export function RegistroPage() {
               etiqueta="Correo electrónico"
               type="email"
               name="email"
-              placeholder="tu.nombre@funval.org"
+              placeholder="tu.correo@ejemplo.com"
               value={formulario.email}
               onChange={handleChange}
               icono={<Mail size={18} />}
